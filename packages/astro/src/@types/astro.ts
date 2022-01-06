@@ -91,6 +91,7 @@ export interface AstroUserConfig {
 	/** Options for rendering markdown content */
 	markdownOptions?: {
 		render?: [string | MarkdownParser, Record<string, any>];
+		defaultLayout?: string;
 	};
 	/** Options specific to `astro build` */
 	buildOptions?: {
