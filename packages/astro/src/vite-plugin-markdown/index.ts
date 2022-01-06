@@ -22,6 +22,7 @@ export default function markdown({ config }: AstroPluginOptions): Plugin {
 
 				// Transform from `.md` to valid `.astro`
 				let render = config.markdownOptions.render;
+				const defaultLayout = config.markdownOptions.defaultLayout || '';
 				let renderOpts = {};
 				if (Array.isArray(render)) {
 					renderOpts = render[1];
@@ -34,7 +35,7 @@ export default function markdown({ config }: AstroPluginOptions): Plugin {
 				let { frontmatter, metadata, code: astroResult } = renderResult;
 
 				// Extract special frontmatter keys
-				const { layout = '', components = '', setup = '', ...content } = frontmatter;
+				const { layout = defaultLayout, components = '', setup = '', ...content } = frontmatter;
 				content.astro = metadata;
 				const prelude = `---
 ${layout ? `import Layout from '${layout}';` : ''}
