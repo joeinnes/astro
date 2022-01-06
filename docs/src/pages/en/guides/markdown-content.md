@@ -119,6 +119,17 @@ const { content } = Astro.props;
 </html>
 ```
 
+You can add a default layout by specifying this in the `astro.config.mjs`:
+
+```js
+// astro.config.mjs
+export default {
+  markdownOptions: {
+    "defaultLayout": "src/layouts/BaseLayout.astro"
+  },
+};
+```
+
 For Markdown files, the `content` prop also has an `astro` property which holds special metadata about the page such as the complete Markdown `source` and a `headers` object. An example of what a blog post `content` object might look like is as follows:
 
 ```json
